@@ -61,6 +61,21 @@ $descrpition_info = ['Nome Hotel', 'Nr.Stelle', 'Parccheggio', 'Distanza dal cen
 <body>
     <!-- MAIN -->
     <main class="py-5">
+
+
+        <form action="form_reply.php" method="GET">
+            <div class="form-wrapper">
+                <input type="text" name="has_parking" id="has_parking">
+            </div>
+            <button type="submit"></button>
+        </form>
+
+
+
+
+
+
+
         <!-- TABLE CONTAINER -->
         <div class="container">
             <table class="table table-secondary table-striped table-hover table-bordered border-danger text-center">
