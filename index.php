@@ -1,5 +1,5 @@
 <?php
-
+// HOTELS ARRAY
 $hotels = [
 
     [
@@ -40,6 +40,11 @@ $hotels = [
 
 ];
 
+// INFO_HOTEL ARRAY
+$descrpition_info = ['Nome Hotel', 'Nr.Stelle', 'Parccheggio', 'Distanza dal centro città'];
+
+/* $bool_to_string = $hotels['parking'] ? 'true' : 'false';
+ */
 ?>
 
 
@@ -54,39 +59,42 @@ $hotels = [
 </html>
 
 <body>
-    <main>
-        <ul>
+    <!-- MAIN -->
+    <main class="py-5">
+        <!-- TABLE CONTAINER -->
+        <div class="container">
+            <table class="table table-secondary table-striped table-hover table-bordered border-danger text-center">
+                <!-- TABLE HEADING -->
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <!-- FOREACH LOOP FOR DESCRIPTION_INFO ARRAY-->
+                        <?php foreach ($descrpition_info as $key => $info) { ?>
+                            <th scope="col"><?php echo  $info   ?></th>
+                        <?php } ?>
+                    </tr>
+                </thead>
 
-            <?php foreach ($hotels as $hotel) { ?>
-                <li>
-                    <h3>
-                        <?php echo $hotel['name'] ?>
-                    </h3>
-                </li>
-                <li>
-                    <p>
-                        <?php echo $hotel['description'] ?>
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <?php echo $hotel['parking'] ?>
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <?php echo $hotel['vote'] ?>
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        <?php echo $hotel['distance_to_center'] ?>
-                    </p>
-                </li>
+                <!-- TABLE BODY -->
+                <tbody>
+                    <tr>
+                        <!-- FOREACH LOOP FOR HOTELS ARRAY -->
+                        <?php foreach ($hotels as $key => $hotel) { ?>
+                            <!-- DESCRIPTION HOTELS -->
+                            <th scope="row"><?php echo $hotel['description'] ?></th>
+                            <!-- HOTELS NAME -->
+                            <td><?php echo $hotel['name'] ?></td>
+                            <!-- HOTELS STARS -->
+                            <td><?php echo $hotel['vote'] ?></td>
+                            <!-- HOTELS BOOLEAN VALUE FOR PARKING -->
+                            <td><?php echo $hotel['parking'] ? 'Si' : 'No' ?></td>
+                            <!-- HOTELS DISTANCE IN KM -->
+                            <td><?php echo $hotel['distance_to_center'] . 'Km' ?></td>
+                    </tr>
+                <?php }  ?>
+                </tbody>
 
-
-            <?php }  ?>
-        </ul>
+        </div>
     </main>
 </body>
 
